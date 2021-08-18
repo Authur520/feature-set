@@ -1,19 +1,17 @@
 server:
   port: 8088
   servlet:
-    context-path: /set-jibing
-
-
+    context-path: /jibing-service
 
 spring:
   application:
-    name: set-jibing
+    name: jibing-service
   cloud:
     nacos:
+      discovery:
+        server-addr: 152.136.228.165:8848
+        namespace: ef334ebf-30bf-49c2-993f-f617f810b3f8
       config:
         server-addr: 152.136.228.165:8848
         file-extension: yaml
-        namespace: ef334ebf-30bf-49c2-993f-f617f810b3f8
-      discovery:
-        server-addr: 152.136.228.165:8848
         namespace: ef334ebf-30bf-49c2-993f-f617f810b3f8

@@ -7,18 +7,13 @@
 		<module>set-common</module>
 		<module>set-jibing</module>
 	</modules>
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.5.2</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
 	<groupId>com.authur.feature.set</groupId>
 	<artifactId>func-collect</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>func-collect</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
+		<java.version>1.8</java.version>
 		<maven.compiler.source>8</maven.compiler.source>
 		<maven.compiler.target>8</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
