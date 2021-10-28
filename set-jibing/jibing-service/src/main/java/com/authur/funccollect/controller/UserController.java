@@ -1,11 +1,13 @@
 package com.authur.funccollect.controller;
 
+import jdk.internal.org.objectweb.asm.tree.TryCatchBlockNode;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.swing.text.AbstractDocument;
 import java.io.*;
+import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -21,6 +23,22 @@ public class UserController{
     public String getUser(){
         return user;
     }
+
+    public static void main(String[] args) {
+
+        SoftReference<byte[]> a = new SoftReference<>(new byte[1024*1024*10]);
+        System.out.println("a:"+a.get());
+        System.gc();
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println(a.get());
+        byte[] b = new byte[1024*1024*10];
+        System.out.println(a.get());
+    }
+
 
 }
 
