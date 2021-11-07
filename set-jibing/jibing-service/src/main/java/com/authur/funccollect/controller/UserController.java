@@ -26,6 +26,7 @@ public class UserController{
 
     public static void main(String[] args) {
 
+        //软引用
         SoftReference<byte[]> a = new SoftReference<>(new byte[1024*1024*10]);
         System.out.println("a:"+a.get());
         System.gc();
