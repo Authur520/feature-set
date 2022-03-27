@@ -45,7 +45,7 @@ public class BlockingQueueDemo {
         System.out.println(arrayBlockingQueue.poll());
     }
 
-    //阻塞
+    //阻塞等待
     public static void test3() throws InterruptedException {
 
         ArrayBlockingQueue arrayBlockingQueue = new ArrayBlockingQueue<>(3);
@@ -62,7 +62,7 @@ public class BlockingQueueDemo {
 
     }
 
-    //阻塞
+    //阻塞超时等待
     public static void test4() throws InterruptedException {
 
         ArrayBlockingQueue arrayBlockingQueue = new ArrayBlockingQueue<>(3);

@@ -1,12 +1,12 @@
 package com.authur.li.juc.queue;
 
-import org.springframework.boot.web.embedded.tomcat.TomcatReactiveWebServerFactory;
-
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.TimeUnit;
 
+//todo 此demo存在问题
 //同步队列
+//SynchronousQueue不存储
 public class SynchronousQueueDemo {
     public static void main(String[] args) {
         BlockingQueue<String> synchronousQueue = new SynchronousQueue<>();
