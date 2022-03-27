@@ -6,7 +6,8 @@
 	<modules>
 		<module>set-common</module>
 		<module>set-jibing</module>
-	</modules>
+        <module>set-demo</module>
+    </modules>
 	<groupId>com.authur.feature.set</groupId>
 	<artifactId>func-collect</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
