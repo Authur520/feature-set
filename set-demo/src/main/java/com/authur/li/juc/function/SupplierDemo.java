@@ -7,7 +7,7 @@ import java.util.function.Supplier;
  */
 public class SupplierDemo {
     public static void main(String[] args) {
-        Supplier<String> supplier = new Supplier<>() {
+        Supplier<String> supplier = new Supplier<String>() {
             @Override
             public String get() {
                 return "1234";

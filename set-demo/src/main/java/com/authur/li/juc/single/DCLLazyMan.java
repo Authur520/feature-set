@@ -1,7 +1,10 @@
 package com.authur.li.juc.single;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+
 /**
- * DCL懒汉式
+ * DCL懒汉式单例模式
  */
 public class DCLLazyMan {
 
@@ -9,7 +12,7 @@ public class DCLLazyMan {
         System.out.println(Thread.currentThread().getName()+ "ok");
     }
 
-    private static DCLLazyMan lazyMan;
+    private volatile static DCLLazyMan lazyMan;//volatile防止指令重排
 
     public static DCLLazyMan getInstance(){
         if (lazyMan == null){
@@ -23,10 +26,15 @@ public class DCLLazyMan {
         return lazyMan;
     }
 
-    public static void main(String[] args) {
-        for (int i = 0; i < 10; i++) {
-            new Thread(()->{
-                DCLLazyMan.getInstance();}).start();
-        }
+    public static void main(String[] args) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+//
+        //            DCLLazyMan instance = DCLLazyMan.getInstance();
+        Constructor<DCLLazyMan> declaredConstructor = DCLLazyMan.class.getDeclaredConstructor(null);
+        declaredConstructor.setAccessible(true);
+        DCLLazyMan instance1 = declaredConstructor.newInstance();
+        DCLLazyMan instance = declaredConstructor.newInstance();
+
+        System.out.println(instance);
+        System.out.println(instance1);
     }
 }
