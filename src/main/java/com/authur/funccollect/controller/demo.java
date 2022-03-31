@@ -1,12 +1,17 @@
 package com.authur.funccollect.controller;
 
+import org.springframework.util.StopWatch;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.swing.text.AbstractDocument;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 public class demo {
@@ -36,10 +41,63 @@ public class demo {
 
     FileReader fr = null;
     BufferedReader br = null;
+    static Byte[] aByte = new Byte[1*1024*1024];
 
-    public static void main(String args[]) throws IOException {
-        new demo().counter();
+    public static void main(String args[]) throws IOException, InterruptedException {
+//        new demo().counter();
+//
+//        ThreadPoolExecutor executor = new ThreadPoolExecutor(2, 4, 24,
+//                TimeUnit.SECONDS,
+//                new ArrayBlockingQueue<>(2),
+//                new ThreadFactory() {
+//                    @Override
+//                    public Thread newThread(Runnable r) {
+//                        Thread t = new Thread();
+//                        t.setName("teat");
+//                        return t;
+//                    }
+//                },
+//                new ThreadPoolExecutor.AbortPolicy());
+//
+//        executor.execute(()->{
+//            for (int i = 0; i < 10; i++) {
+//                System.out.println("aaa");
+//            }
+//        });
+//        executor.shutdown();//关闭线程池，但是线程池内的任务还在执行
+//        executor.shutdownNow();//关闭线程池，并且停止正在运行的内容
+//        System.out.println(0b11111111111111111111111111111111);
+//
+//        new Thread().start();
+
+//        计算效率
+//        StopWatch stopWatch = new StopWatch();
+//        stopWatch.start("task1");
+//        Thread.sleep(200);
+//        stopWatch.stop();
+//
+//        stopWatch.start("task2");
+//        Thread.sleep(400);
+//        stopWatch.stop();
+//        System.out.println("shuchu:"+stopWatch.prettyPrint());
+
+
+        ArrayList<Object> objects = new ArrayList<>();
+        int count = 0;
+        try {
+            while (true){
+                objects.add(aByte);
+                count = count + 1;
+            }
+        }catch (Error e){
+            System.out.println("count"+ count);
+            e.printStackTrace();
+        }
+
     }
+
+
+
 
     public void counter() throws IOException {
 

@@ -17,7 +17,7 @@ public class CASDemo {
     //CAS 比较并交换
     public static void main(String[] args) {
 
-//        AtomicReference<Object> atomicReference = new AtomicReference<>(2021);
+//        AtomicReference<Object> atomicReference = new AtomicReference<>(21);
         AtomicStampedReference<Integer> atomicStampedReference = new AtomicStampedReference<>(21, 22);
 
         new Thread(()->{
@@ -28,8 +28,8 @@ public class CASDemo {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            atomicStampedReference.compareAndSet(21,22,
-                    atomicStampedReference.getStamp(),atomicStampedReference.getStamp()+1);
+            System.out.println(atomicStampedReference.compareAndSet(21, 22,
+                    atomicStampedReference.getStamp(), atomicStampedReference.getStamp() + 1));
             System.out.println("a2=>"+stamp);
 
             System.out.println(atomicStampedReference.compareAndSet(22, 21,

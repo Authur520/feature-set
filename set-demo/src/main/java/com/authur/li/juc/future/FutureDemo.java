@@ -1,6 +1,6 @@
 package com.authur.li.juc.future;
 
-import java.net.SocketTimeoutException;
+
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;

@@ -1,6 +1,7 @@
 package com.authur.funccollect.juc.pc;
 
 import java.sql.SQLOutput;
+import java.util.Random;
 
 /**
  * @Description: 线程间的通信      等待唤醒，停止唤醒
