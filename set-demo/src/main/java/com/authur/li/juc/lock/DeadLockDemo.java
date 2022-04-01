@@ -9,7 +9,7 @@ public class DeadLockDemo {
         String lockB = "lockB";
 
         new Thread(new MyThread(lockA,lockB),"T1").start();
-        new Thread(new MyThread(lockB,lockA),"T2").start();
+        new Thread(new MyThread(lockB,lockA ),"T2").start();
     }
 }
 class MyThread implements Runnable{

@@ -3,6 +3,7 @@ package com.authur.li.aqs;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.LockSupport;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -10,6 +11,8 @@ import java.util.concurrent.locks.ReentrantLock;
  * @Author: jibing.Li
  * @Date: 2022/4/1 16:40
  * 可重入锁：同一个线程可以重入他的同一把锁
+ * LockSupport
+ *
  * wait和notify必须锁的同一个对象
  */
 public class LockSupportDemo {
@@ -19,13 +22,29 @@ public class LockSupportDemo {
     static Condition condition = lock.newCondition();
 
     public static void main(String[] args) {
+
+        Thread thread = new Thread(() -> {
+            System.out.println(Thread.currentThread().getName() + "\t" + "-----------come in");
+            LockSupport.park();
+            System.out.println(Thread.currentThread().getName() + "\t" + "-----------被唤醒");
+        }, "A");
+        thread.start();
+
+        new Thread(()->{
+            System.out.println(Thread.currentThread().getName()+"\t"+"-----------通知");
+            LockSupport.unpark(thread);
+        },"B").start();
+
+
+    }
+
+    private static void LockAwaitSignal() {
         new Thread(()->{
 
         lock.lock();
 
         try {
             System.out.println(Thread.currentThread().getName()+"\t"+"-----------come in");
-
             try {
                     condition.await();
                 } catch (InterruptedException e) {
@@ -37,11 +56,8 @@ public class LockSupportDemo {
         } finally {
             lock.unlock();
         }
-
         },"A").start();
-
         new Thread(()->{
-
             lock.lock();
             try {
                 condition.signal();
@@ -51,14 +67,10 @@ public class LockSupportDemo {
             } finally {
                 lock.unlock();
             }
-
         },"B").start();
-
-
-
     }
 
-    private static void synchronziedwaitnotfiydemo() {
+    private static void synchronizedWaitNotifyDemo() {
         new Thread(()->{
 
             synchronized (objeckLock){
