@@ -2,7 +2,12 @@ package com.authur.li.juc.assist;
 
 import java.util.concurrent.CountDownLatch;
 
-//计数器
+/**
+ * 减法计数器
+ * countDownLatch.countDown();
+ * countDownLatch.await();
+ */
+
 public class CountDownLatchDemo {
 
     public static void main(String[] args) throws InterruptedException {

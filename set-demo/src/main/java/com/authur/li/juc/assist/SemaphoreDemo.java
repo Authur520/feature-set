@@ -3,8 +3,12 @@ package com.authur.li.juc.assist;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * 信号量
+ */
 public class SemaphoreDemo {
     public static void main(String[] args) {
+        //控制线程的执行个数
         Semaphore semaphore = new Semaphore(3);
         for (int i = 0; i < 6; i++) {
             new Thread(()->{

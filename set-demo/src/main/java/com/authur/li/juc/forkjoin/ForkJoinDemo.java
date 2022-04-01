@@ -1,10 +1,10 @@
 package com.authur.li.juc.forkjoin;
 
-import java.util.concurrent.ForkJoinTask;
+
 import java.util.concurrent.RecursiveTask;
 
 /**
- *
+ * 双端队列
  */
 public class ForkJoinDemo extends RecursiveTask<Long> {
 

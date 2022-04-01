@@ -5,6 +5,9 @@ import java.util.Map;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
+/**
+ * 读写锁
+ */
 public class ReadWriteLockDemo {
     public static void main(String[] args) {
 
