@@ -22,7 +22,7 @@ GC
     不能并行处理，会触发全线暂停（STW）
 并行GC：jdk678默认
     ParallelGC执行的时候会使用全部的线程，吞吐量高，但是也会造成短暂的STW
-CMS GC
+CMS GC （发生在老年代）
     -XX:+UseConcMarkSweepGC 年轻代采用并行STW的标记-复制算法，老年代采用并发的标记-清除算法。
     方法：1.老年代不整理，使用空闲列表（free-lists），类似索引的东西，记录空闲的空间
          2.标记-清除算法可以和应用线程一起并行执行
@@ -47,10 +47,16 @@ ZGC：Java11 100G以上的内存建议用
     缺点：吞吐量少了
 Shenandoah GC
 
+注：Java8自适应参数默认是开启的，需要关掉
 
+jvm图形化工具：Easy GC 
 
+jvm内存分析工具：MAT、jhat
 
-
+gc调优：
+    分配速率
+    提升速率 
     
+诊断分析工具：Arthas
 
 
