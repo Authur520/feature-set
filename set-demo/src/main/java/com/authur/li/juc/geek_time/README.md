@@ -11,6 +11,7 @@ Object#wait：
     传递规则：A先于B，B先于C，则A先于C
     线程启动规则：start代码发生在run之前
     线程中断规则：在try-catch的interrupt()方法catch了interrupt exception，interrupt一定在catch之前
-    线程终结规则：
-    对象终结规则：
+    线程终结规则：线程中所有的逻辑都会发生在线程终结之前
+    对象终结规则：一个对象初始化对应的方法一定发生在finalize()之前
+    
     
