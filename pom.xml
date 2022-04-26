@@ -7,6 +7,7 @@
 		<module>set-common</module>
 		<module>set-jibing</module>
         <module>set-demo</module>
+        <module>geek-time</module>
     </modules>
 	<groupId>com.authur.feature.set</groupId>
 	<artifactId>func-collect</artifactId>
