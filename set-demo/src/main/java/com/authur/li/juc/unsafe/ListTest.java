@@ -1,8 +1,15 @@
 package com.authur.li.juc.unsafe;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+/**
+ * ConcurrentHashMap
+ * 分段锁：16个小锁，最多可以有16个线程同时读
+ * ThreadLocal
+ *
+ */
 public class ListTest {
 
     public static void main(String[] args) {
