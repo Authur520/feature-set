@@ -1,0 +1,73 @@
+version: '3'
+
+services:
+  #authur-register:
+   # image: authurs/authur-register:v1.0.0 # 指定基础镜像，就是上一节中我们自己构建的镜像
+   # container_name: authur-register # 容器名称
+   # volumes:
+   #   - "/authur/log:/log" #日志挂载
+   # command:
+   #   - "--authur-register=81.70.92.153" # 通过command指定地址变量值
+   #   - "--authur-monitor-admin=81.70.92.153"
+   # ports:
+   #   - 8001:8001 # 端口映射
+ # authur-monitor-admin:
+  #  image: authurs/authur-monitor-admin:v1.0.0
+  #  container_name: authur-monitor-admin
+  #  volumes:
+  #    - "/authur/log:/log"
+  #  ports:
+  #    - 8401:8401
+  authur-gateway:
+    image: authurs/authur-gateway:v1.0.0
+    container_name: authur-gateway
+  #  depends_on:
+  #    - authur-register
+    volumes:
+      - "/authur/log:/log"
+    command:
+      - "--authur-register=81.70.92.153"
+      - "--authur-monitor-admin=81.70.92.153"
+    ports:
+      - 8301:8301
+  authur-auth:
+    image: authurs/authur-auth:v1.0.1
+    container_name: authur-auth
+  #  depends_on:
+  #    - authur-register
+    volumes:
+      - "/authur/log:/log"
+    command:
+      - "--mysql.url=81.70.92.153"
+      - "--redis.url=81.70.92.153"
+      - "--authur-register=81.70.92.153"
+      - "--authur-monitor-admin=81.70.92.153"
+    ports:
+      - 8101:8101
+  authur-server-system:
+    image: authurs/authur-server-system:v1.0.1
+    container_name: authur-server-system
+  #  depends_on:
+  #    - authur-register
+    volumes:
+      - "/authur/log:/log"
+    command:
+      - "--mysql.url=81.70.92.153"
+      - "--authur-register=81.70.92.153"
+      - "--authur-monitor-admin=81.70.92.153"
+      - "--authur-gateway=81.70.92.153"
+    ports:
+      - 8201:8201
+  authur-server-test:
+    image: authurs/authur-server-test:v1.0.1
+    container_name: authur-server-test
+  #  depends_on:
+  #    - authur-register
+    volumes:
+      - "/authur/log:/log"
+    command:
+      - "--authur-register=81.70.92.153"
+      - "--authur-monitor-admin=81.70.92.153"
+      - "--authur-gateway=81.70.92.153"
+    ports:
+      - 8202:9202
