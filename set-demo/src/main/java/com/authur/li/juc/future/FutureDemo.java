@@ -23,7 +23,7 @@ public class FutureDemo {
             int i = 10/0;
             return 1024;
         });
-        System.out.println(integerCompletableFuture.whenComplete((t, u) -> {
+        System.out.println(":::"+integerCompletableFuture.whenComplete((t, u) -> {
             System.out.println("t=>" + t);
             System.out.println("u=>" + u);
         }).exceptionally((e) -> {
