@@ -6,7 +6,7 @@ import java.util.concurrent.atomic.LongAdder;
 
 /**
  * @description: GC日志分析程序（GC衡量指标：吞吐量、停顿时间、垃圾回收频率）
- * @author: hansiyuan
+ * @author: lijibing
  * @date: 2022/3/3 11:00 AM
  */
 public class GCLogAnalysis {

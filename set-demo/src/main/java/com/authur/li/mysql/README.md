@@ -87,10 +87,38 @@ tools：innblock-master
 表锁：selec方式上锁：
 	共享锁：select * from table lock in share mode
 	排他锁：select * from table for update
+行锁：排他锁：select * from table where name = 'li' for update
+	注意：行级锁的条件必须是索引，否则是表锁。
 	
+mysql排他锁的使用：
+//上锁 
+
+    public boolean lock(){
+        connection.setAutoCommit(false)
+        while(true){
+            try{
+                result = select * from methodLock where method_name=xxx for update;
+                if(result==null){
+                    return true;
+                }
+            }catch(Exception e){
+                    
+            }
+        
+            sleep(1000);
+        }
+        return false;
+    }
+
+//解锁
+
+    public void unlock(){    
+        connection.commit();
+    }
 
 
 
+连接者：show processlist;
 
 隔离级别
     读未提交
