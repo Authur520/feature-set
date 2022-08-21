@@ -8,6 +8,7 @@
 		<module>set-jibing</module>
         <module>set-demo</module>
         <module>geek-time</module>
+        <module>feature-template</module>
     </modules>
 	<groupId>com.authur.feature.set</groupId>
 	<artifactId>func-collect</artifactId>
@@ -15,51 +16,36 @@
 	<name>func-collect</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-		<java.version>1.8</java.version>
-		<maven.compiler.source>8</maven.compiler.source>
-		<maven.compiler.target>8</maven.compiler.target>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<junit.version>4.12</junit.version>
-		<log4j.version>1.2.17</log4j.version>
 		<lombok.version>1.16.18</lombok.version>
-		<druid.version>1.1.9</druid.version>
+		<spring-cloud.version>Greenwich.SR1</spring-cloud.version>
+		<spring-cloud-alibaba.version>0.9.0.RELEASE</spring-cloud-alibaba.version>
 <!--		<mybatis.version>2.0</mybatis.version>-->
-		<redis.version>5.0.12</redis.version>
+<!--		<redis.version>5.0.12</redis.version>-->
 	</properties>
 
 	<!-- 子模块继承之后，提供作用：锁定版本 + 子模块不用写groupId与version-->
 	<dependencyManagement>
 		<dependencies>
+<!--			<dependency>-->
+<!--				<groupId>org.springframework.boot</groupId>-->
+<!--				<artifactId>spring-boot-dependencies</artifactId>-->
+<!--				<version>2.2.2.RELEASE</version>-->
+<!--				<type>pom</type>-->
+<!--				<scope>import</scope>-->
+<!--			</dependency>-->
 			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-dependencies</artifactId>
-				<version>2.2.2.RELEASE</version>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>Hoxton.SR1</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>com.alibaba.cloud</groupId>
 				<artifactId>spring-cloud-alibaba-dependencies</artifactId>
-				<version>2.1.0.RELEASE</version>
+				<version>0.9.0.RELEASE</version>
 				<type>pom</type>
 				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>com.alibaba</groupId>
-				<artifactId>druid</artifactId>
-				<version>${druid.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.data</groupId>
-				<artifactId>spring-data-redis</artifactId>
-				<version>${redis.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -67,20 +53,8 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<version>2.2.6.RELEASE</version>
 		</dependency>
 	</dependencies>
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<version>2.2.2.RELEASE</version>
-				<configuration>
-					<fork>true</fork>
-					<addResources>true</addResources>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
 
 </project>
