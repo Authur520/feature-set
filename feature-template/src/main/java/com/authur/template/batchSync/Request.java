@@ -10,11 +10,11 @@ import java.util.concurrent.CompletableFuture;
  * @author authur
  * @description:
  */
-public class Request1 {
+public class Request {
 
-    private String serialNo;
-    private CompletableFuture<Map<String, Object>> future;
-    private String id;
+    String serialNo;
+    CompletableFuture<Map<String, Object>> future;
+    String id;
 
 
 }
