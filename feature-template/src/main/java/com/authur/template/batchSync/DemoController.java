@@ -13,13 +13,13 @@ import java.util.concurrent.FutureTask;
  * @description:Controller层做异步
  */
 @RestController
-@RequestMapping("")
+@RequestMapping("/user")
 public class DemoController {
 
     @Autowired
     BatchService batchService;
 
-    @RequestMapping("")
+    @RequestMapping("/getUser")
     public Callable<String> DemoQuery() throws ExecutionException, InterruptedException {
         Callable<String> callable = new Callable<String>() {
             public String call() throws Exception {
