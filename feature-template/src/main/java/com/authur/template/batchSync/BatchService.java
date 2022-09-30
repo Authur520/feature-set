@@ -1,9 +1,6 @@
 package com.authur.template.batchSync;
 
 
-
-
-import org.apache.ibatis.ognl.ObjectElementsAccessor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
